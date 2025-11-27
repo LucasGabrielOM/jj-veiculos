@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — JJ Veículos</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: "Ubuntu", sans-serif;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 20px 0 10px;
+    }
+
+    header img {
+      width: 220px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #ff9933;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #ffd8a2;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ff9933;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    /* FORMULÁRIO */
+    form {
+      background: #111;
+      padding: 25px;
+      border-radius: 15px;
+      border: 2px solid #ff9933;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff9933;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 10px;
+      border: 2px solid #ff9933;
+      background: #000;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      background: #ff9933;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ffc377;
+    }
+
+    /* ÍCONES SOCIAIS */
+    .social-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .social-box h2 {
+      color: #ff9933;
+      margin-bottom: 15px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+    }
+
+    .icons img {
+      width: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .icons img:hover {
+      transform: scale(1.1);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="Styles/assets/logomarca-principal.png" alt="JJ Veículos">
+
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="sobre.html">SOBRE</a>
+      <a href="veiculos.html">VEÍCULOS</a>
+      <a href="contato.html">CONTATO</a>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="container">
+    <h1>Entre em Contato</h1>
+
+    <!-- FORMULÁRIO -->
+    <form action="#" method="POST">
+      
+      <div class="form-group">
+        <label>Nome Completo</label>
+        <input type="text" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="Digite seu e-mail" required>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone</label>
+        <input type="text" placeholder="(DDD) 00000-0000" required>
+      </div>
+
+      <div class="form-group">
+        <label>Mensagem</label>
+        <textarea placeholder="Como podemos ajudar?" required></textarea>
+      </div>
+
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+
+    <!-- SOCIAL -->
+    <div class="social-box">
+      <h2>Redes e Contato Direto</h2>
+
+      <div class="icons">
+        <!-- INSTAGRAM -->
+        <a href="https://www.instagram.com/jjveiculossc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="Styles/assets/instagram.png" alt="Instagram">
+        </a>
+
+        <!-- WHATSAPP -->
+        <a href="https://wa.me/5548991639094" target="_blank">
+          <img src="Styles/assets/whatsapp.png" alt="WhatsApp">
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a href="https://wa.me/5548991639094?text=Olá!%20Tenho%20interesse%20em%20um%20carro." 
+   class="btn-whatsapp" 
+   target="_blank">
+  <img src="Styles/assets/whatsapp.png" alt="WhatsApp">
+</a>
+
+<style>
+  .btn-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 70%;
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: 0.25s;
+  }
+
+  .btn-whatsapp img {
+    width: 50px;
+  }
+
+  .btn-whatsapp:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 18px rgba(0,0,0,0.9);
+  }
+</style>
+
+</body>
+</html>

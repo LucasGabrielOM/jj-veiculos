@@ -1,0 +1,49 @@
+@import url(global.css);
+@import url(header.css);
+@import url(main.css);
+@import url(cardmarca.css);
+
+.car-categories {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.car-card {
+  min-width: 250px;
+  background: #111;
+  border-radius: 15px;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.car-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.car-card h3 {
+  font-size: 18px;
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+.car-card .arrow {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(255, 136, 0, 0.3);
+}

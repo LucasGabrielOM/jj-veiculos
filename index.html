@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="Styles/assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="Styles/index.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <title>JJ Veículos</title>
+</head>
+
+<script>
+function filtrar() {
+  const modelo = document.getElementById('modelo').value;
+  const anode = document.getElementById('anode').value;
+  const anoate = document.getElementById('anoate').value;
+  const precode = document.getElementById('precode').value.replace(/\D/g, '');
+  const precoate = document.getElementById('precoate').value.replace(/\D/g, '');
+
+  const params = new URLSearchParams({
+    modelo,
+    anode,
+    anoate,
+    precode,
+    precoate
+  });
+
+  window.location.href = 'veiculos.html?' + params.toString();
+}
+</script>
+
+<body>
+  <div class="app">
+
+    <!-- ================= HEADER ================= -->
+    
+    <header id="home">
+    <img src="Styles/assets/logomarca-principal.png" alt="logo">
+
+    <nav>
+    <a href="index.html">HOME</a>
+    <a href="sobre.html">SOBRE</a>
+    <a href="veiculos.html">VEÍCULOS</a>
+    <a href="contato.html">CONTATO</a>
+    </nav>
+
+    <div id="main-img"></div>
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+      <!-- TITULO -->
+      <div class="frase1">
+        <p>O Que Você Procura?</p>
+      </div>
+
+
+      <!-- ================= FILTROS ================= -->
+      <fieldset class="filtros-container">
+
+  <div class="filtro-item">
+    <label for="modelo">Modelo</label>
+    <select id="modelo">
+      <option value="">Modelo</option>
+      <option value="320i">320i</option>
+      <option value="A7">A7</option>
+      <option value="Tracker">Tracker</option>
+      <option value="C200">C200</option>
+      <option value="XC60">XC60</option>
+    </select>
+  </div>
+
+  <div class="filtro-item">
+    <label for="anode">Ano de</label>
+    <select id="anode">
+      <option value="">Ano de</option>
+      <option>2025</option><option>2024</option><option>2023</option>
+      <option>2021</option><option>2020</option><option>2019</option>
+      <option>2018</option><option>2017</option><option>2016</option>
+      <option>2015</option><option>2014</option><option>2013</option>
+      <option>2012</option><option>2011</option><option>2010</option>
+      <option>2009</option>
+    </select>
+  </div>
+
+  <div class="filtro-item">
+    <label for="anoate">Ano até</label>
+    <select id="anoate">
+      <option value="">Ano até</option>
+      <option>2025</option><option>2024</option><option>2023</option>
+      <option>2021</option><option>2020</option><option>2019</option>
+      <option>2018</option><option>2017</option><option>2016</option>
+      <option>2015</option><option>2014</option><option>2013</option>
+      <option>2012</option><option>2011</option><option>2010</option>
+      <option>2009</option>
+    </select>
+  </div>
+
+  <div class="filtro-item">
+    <label for="precode">Preço de</label>
+    <input type="text" id="precode" placeholder="R$">
+  </div>
+
+  <div class="filtro-item">
+    <label for="precoate">Preço até</label>
+    <input type="text" id="precoate" placeholder="R$">
+  </div>
+
+  <!-- BOTÃO FILTRAR -->
+  <button class="btn-filtrar" onclick="filtrar()">Filtrar</button>
+
+</fieldset>
+
+
+      <!-- ================= CARDS DAS MARCAS ================= -->
+      <section class="car-categories">
+
+  <a href="audi.html" class="car-card">
+    <img src="Styles/assets/audi.png" alt="Audi">
+    <h3>Audi</h3>
+    <span class="arrow">→</span>
+  </a>
+
+  <a href="bmw.html" class="car-card">
+    <img src="Styles/assets/bmw.png" alt="BMW">
+    <h3>BMW</h3>
+    <span class="arrow">→</span>
+  </a>
+
+  <a href="chevrolet.html" class="car-card">
+    <img src="Styles/assets/logochevrolet.png" alt="Chevrolet">
+    <h3>Chevrolet</h3>
+    <span class="arrow">→</span>
+  </a>
+
+  <a href="mercedes.html" class="car-card">
+    <img src="Styles/assets/mercedes-benz.png" alt="Mercedes">
+    <h3>Mercedes</h3>
+    <span class="arrow">→</span>
+  </a>
+
+</section>
+
+    </main>
+  </div>
+  <script src="scripts.js"></script>
+  
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a href="https://wa.me/5548991639094?text=Olá!%20Tenho%20interesse%20em%20um%20carro." 
+   class="btn-whatsapp" 
+   target="_blank">
+  <img src="Styles/assets/whatsapp.png" alt="WhatsApp">
+</a>
+
+<style>
+  .btn-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 70%;
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: 0.25s;
+  }
+
+  .btn-whatsapp img {
+    width: 50px;
+  }
+
+  .btn-whatsapp:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 18px rgba(0,0,0,0.9);
+  }
+  .btn-filtrar {
+    margin-top: 10px;
+    background: #ff9933;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .2s;
+    width: 120px;
+  }
+
+  .btn-filtrar:hover {
+    background: #ffc377;
+  }
+</style>
+
+</style>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veículos — JJ Veículos</title>
+
+  <style>
+    /* ======= ESTILOS GERAIS ======= */
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Ubuntu", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ======= CABEÇALHO ======= */
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header img {
+      width: 200px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #ff9933;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #ffd8a2;
+    }
+
+    /* ======= CONTÊINER ======= */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff9933;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    /* ======= GRADE DOS VEÍCULOS ======= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 25px;
+    }
+
+    .car-card {
+      background: #111;
+      border: 2px solid #ff9933;
+      border-radius: 15px;
+      padding: 15px;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .car-card:hover {
+      transform: scale(1.03);
+      border-color: #ffc377;
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border-bottom: 2px solid #ff9933;
+    }
+
+    .car-card h3 {
+      margin-top: 12px;
+      color: #ff9933;
+      font-size: 22px;
+    }
+
+    .car-card p {
+      margin: 4px 0;
+      font-size: 15px;
+      color: #bbb;
+    }
+
+    .car-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #ff9933;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .car-card a:hover {
+      background: #ffc377;
+    }
+
+    /* ======= CAIXA DE BUSCA ======= */
+    .search-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .search-box input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #ff9933;
+      background: #111;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    /* ======= WHATSAPP FLOAT ======= */
+    .btn-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 70%;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      transition: 0.25s;
+    }
+
+    .btn-whatsapp img {
+      width: 50px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 18px rgba(0,0,0,0.9);
+    }
+
+  </style>
+
+  <script>
+    /* ======= BUSCA DINÂMICA ======= */
+    function buscarCarro() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let cards = document.getElementsByClassName("car-card");
+
+      for (let i = 0; i < cards.length; i++) {
+        let texto = cards[i].innerText.toLowerCase();
+
+        if (texto.includes(input)) {
+          cards[i].style.display = "block";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ======= CABEÇALHO ======= -->
+  <header>
+    <img src="Styles/assets/logomarca-principal.png" alt="JJ Veículos">
+
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="sobre.html">SOBRE</a>
+      <a href="veiculos.html">VEÍCULOS</a>
+      <a href="contato.html">CONTATO</a>
+    </nav>
+  </header>
+
+  <!-- ======= CAMPO DE BUSCA ======= -->
+  <div class="search-box">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Buscar veículo..." 
+      onkeyup="buscarCarro()"
+    >
+  </div>
+
+  <!-- ======= CONTEÚDO PRINCIPAL ======= -->
+  <div class="container">
+
+    <h1>Nossos Veículos</h1>
+
+    <div class="grid">
+
+      <!-- Audi A7 -->
+      <div class="car-card" onclick="location.href='audi.html'">
+        <img src="Styles/assets/A7Sportback1.png" alt="Audi A7">
+        <h3>Audi A7 Sportback 2014</h3>
+        <p>119.000 km — Automático — Gasolina</p>
+        <a href="audi.html">Ver detalhes</a>
+      </div>
+
+      <!-- BMW 320iA -->
+      <div class="car-card" onclick="location.href='bmw.html'">
+        <img src="Styles/assets/320iAi1.png" alt="BMW 320iA">
+        <h3>BMW 320iA 2015</h3>
+        <p>149.000 km — Automático — Flex</p>
+        <a href="bmw.html">Ver detalhes</a>
+      </div>
+
+      <!-- Mercedes C200 -->
+      <div class="car-card" onclick="location.href='mercedes.html'">
+        <img src="Styles/assets/C-200-1.png" alt="Mercedes C200">
+        <h3>Mercedes C200 2011</h3>
+        <p>166.000 km — Automático — Gasolina</p>
+        <a href="mercedes.html">Ver detalhes</a>
+      </div>
+
+      <!-- Chevrolet Tracker -->
+      <div class="car-card" onclick="location.href='chevrolet.html'">
+        <img src="Styles/assets/TRACKERLTZ1.png" alt="Tracker LTZ">
+        <h3>Chevrolet Tracker LTZ 2014</h3>
+        <p>174.000 km — Automático — Flex</p>
+        <a href="chevrolet.html">Ver detalhes</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ======= BOTÃO WHATSAPP ======= -->
+  <a 
+    href="https://wa.me/5548991639094?text=Olá!%20Tenho%20interesse%20em%20um%20carro."
+    class="btn-whatsapp"
+    target="_blank"
+  >
+    <img src="Styles/assets/whatsapp.png" alt="WhatsApp">
+  </a>
+
+</body>
+</html>

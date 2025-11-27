@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker LTZ 2014 - JJ Veículos</title>
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Ubuntu", sans-serif;
+      margin-bottom: 90px; /* espaço para o rodapé */
+    }
+
+    .car-page {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    /* ================= BOTÕES ================= */
+    .top-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #ff9933;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #ffc377;
+    }
+
+    .btn-cart {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ================= TÍTULO ================= */
+    .car-title {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      color: #ff9933;
+      margin-bottom: 25px;
+    }
+
+    /* ================= GALERIA ================= */
+    .car-gallery {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+
+    .car-gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #ff9933;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .car-gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      width: 90%;
+      max-width: 700px;
+      border-radius: 10px;
+      border: 2px solid #ff9933;
+    }
+
+    /* ================= INFO ================= */
+    .car-info-box {
+      border: 2px solid #ff9933;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 25px;
+      background: #111;
+    }
+
+    .car-info-box h2 {
+      color: #ff9933;
+      margin-bottom: 15px;
+    }
+
+    .car-info p {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+
+    .features-list li {
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    /* ================= CUPOM ================= */
+    .cupom-box {
+      margin-top: 25px;
+      padding: 20px;
+      border: 2px solid #ff9933;
+      border-radius: 15px;
+      background: #111;
+    }
+
+    .cupom-box input {
+      padding: 10px;
+      width: 200px;
+      border: 2px solid #ff9933;
+      border-radius: 10px;
+      background: #000;
+      color: #fff;
+    }
+
+    .cupom-box button {
+      padding: 10px 15px;
+      border-radius: 10px;
+      background: #ff9933;
+      border: none;
+      margin-left: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+
+    /* ============================================
+       RODAPÉ BLACK FRIDAY CORRIGIDO
+    ============================================ */
+
+    .promo-footer {
+      width: 100%;
+      background: #ff8a00;
+      padding: 6px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 9999;
+      border-top: 2px solid #000;
+      overflow: hidden;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .promo-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 98%;
+    }
+
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+      animation: correr 12s linear infinite;
+      width: 65%;
+      height: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .marquee span {
+      font-size: 15px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    @keyframes correr {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .right-side {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contador {
+      font-size: 14px;
+      background: #000;
+      color: #ff8a00;
+      padding: 3px 6px;
+      border-radius: 6px;
+    }
+
+    .btn-cupom {
+      padding: 6px 10px;
+      background: #000;
+      color: #ff8a00;
+      border: 2px solid #000;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .btn-cupom:hover {
+      background: #ff8a00;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="car-page">
+
+    <!-- BOTÕES TOPO -->
+    <div class="top-buttons">
+      <a href="veiculos.html" class="btn">← Voltar</a>
+      <a class="btn btn-cart">🛒 Comprar / Reservar</a>
+    </div>
+
+    <!-- TÍTULO -->
+    <h1 class="car-title">TRACKER LTZ 1.8 Automática 2014</h1>
+
+    <!-- GALERIA -->
+    <div class="car-gallery">
+      <img src="Styles/assets/TRACKERLTZ1.png">
+      <img src="Styles/assets/TRACKERLTZ2.png">
+      <img src="Styles/assets/TRACKERLTZ3.png">
+      <img src="Styles/assets/TRACKERLTZ4.png">
+      <img src="Styles/assets/TRACKERLTZ5.png">
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+      <img id="lightbox-img">
+    </div>
+
+    <!-- INFO DO CARRO -->
+    <div class="car-info-box">
+
+      <h2>Informações do veículo</h2>
+
+      <p><strong>Modelo:</strong> Tracker LTZ 1.8 Automática</p>
+      <p><strong>Ano:</strong> 2014</p>
+      <p><strong>KM:</strong> 174.000 km</p>
+      <p><strong>FIPE:</strong> R$ 64.646,00</p>
+      <p><strong>Venda:</strong> <span style="color:#ff9933; font-weight:bold;">R$ 54.990,00</span></p>
+
+      <h2>Opcionais</h2>
+      <ul class="features-list">
+        <li>Teto solar</li>
+        <li>Ar condicionado</li>
+        <li>Direção hidráulica</li>
+        <li>Vidros elétricos</li>
+        <li>Sistema MyLink</li>
+        <li>Rodas de liga leve</li>
+        <li>Bancos em couro</li>
+      </ul>
+    </div>
+
+    <!-- CUPOM -->
+    <div class="cupom-box">
+      <h2>Cupom de Desconto</h2>
+      <input type="text" id="cupom" placeholder="Digite seu cupom">
+      <button onclick="aplicarCupom()">Aplicar</button>
+      <p id="resultado-cupom" style="margin-top: 15px; font-size: 20px;"></p>
+    </div>
+
+  </div>
+
+<script>
+  // LIGHTBOX
+  document.querySelectorAll('.car-gallery img').forEach(img => {
+    img.onclick = () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').style.display = "flex";
+    }
+  });
+
+  // CUPOM
+  function aplicarCupom() {
+    const cupom = document.getElementById("cupom").value.trim();
+    const preco = 54990;
+    const resultado = document.getElementById("resultado-cupom");
+
+    if (cupom === "JJ10") {
+      const final = preco - (preco * 0.10);
+      resultado.innerHTML = `Cupom aplicado! Novo valor: <b style="color:#ff9933">R$ ${final.toLocaleString()}</b>`;
+    } else {
+      resultado.innerHTML = "<span style='color:red;'>Cupom inválido.</span>";
+    }
+  }
+
+  // CONTADOR REGRESSIVO
+  let fim = new Date();
+  fim.setDate(fim.getDate() + 7);
+
+  function atualizarContador() {
+    let agora = new Date();
+    let dif = fim - agora;
+
+    if (dif <= 0) {
+      document.getElementById("contador").innerHTML = "Promoção encerrada!";
+      return;
+    }
+
+    let dias = Math.floor(dif / (1000*60*60*24));
+    let horas = Math.floor((dif % (1000*60*60*24)) / (1000*60*60));
+    let minutos = Math.floor((dif % (1000*60*60)) / (1000*60));
+    let segundos = Math.floor((dif % (1000*60)) / 1000);
+
+    document.getElementById("contador").innerHTML =
+      `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  }
+
+  setInterval(atualizarContador, 1000);
+
+  // SCROLL para box de cupom
+  function scrollToCupom() {
+    document.querySelector(".cupom-box").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+<!-- RODAPÉ -->
+<footer class="promo-footer">
+  <div class="promo-content">
+
+    <div class="marquee">
+      <span>
+        🔥 SUPER DESCONTO DE BLACK FRIDAY! SOMENTE ESTA SEMANA! —
+        ⚡ USE O CUPOM JJ10 E GANHE DESCONTO EXCLUSIVO!
+      </span>
+    </div>
+
+    <div class="right-side">
+      <div id="contador" class="contador"></div>
+      <button class="btn-cupom" onclick="scrollToCupom()">APLICAR CUPOM</button>
+    </div>
+
+  </div>
+</footer>
+    
+</body>
+</html>
